@@ -1,0 +1,42 @@
+<div>
+  <section class="panel-wrapper">
+    <div class="panel">
+      <h3>Filter Results</h3>
+      <div class="flex-form">
+        <div class="terms">
+          <label for="terms">Name (contains)</label>
+          <input type="text" id="terms" name="terms" placeholder="Text string" [(ngModel)]="term"/>
+        </div>
+        <div class="rating">
+          <label for="min-rating">Minimum score</label>
+          <input type="number" id="min-rating" name="min-rating" placeholder="1 - 10" min="1" max="10" [(ngModel)]="minRating" pattern="^[1-9]?$|^10$" />
+        </div>
+        <div class="order">
+          <label for="orderBy">Order by</label>
+          <div>
+            <button type="button" [ngClass]="orderByDir" (click)="reorder()"></button>
+            <select name="orderBy" [(ngModel)]="orderByType" (change)="autoOrder($event)">
+              <option *ngFor="let item of orderByList" [ngValue]="item">{{item.label}}</option>
+            </select>
+          </div>
+        </div>
+        <div class="reset">
+          <button type="button" (click)="reset()">Clear</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="games">
+    <app-spiner *ngIf="!games.length"></app-spiner>
+    <div *ngFor="let game of games | orderBy:orderByType.key:orderByDir | gameTerm:term:['name', 'summary'] | gameRating:minRating">
+      <div class="thumb"></div>
+      <div class="info">
+        <h3>{{game.name}}</h3>
+        <div class="date">Release Date: {{game.first_release_date | date: 'dd/MM/yyyy'}}</div>
+        <div class="summary">{{game.summary}}</div>
+      </div>
+      <div class="rating">{{game.rating / 10 | number : '1.1-1'}}</div>
+    </div>
+    <!--pre>{{games | json}}</pre-->
+  </section>
+</div>

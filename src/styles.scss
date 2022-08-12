@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+@import "vars.scss";
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  @include mulish-family-500;
+  font-size: 12px;
+  color: $color-core;
+  background: rgb(8,18,33);
+  background: -moz-linear-gradient(180deg, rgba(8,18,33,1) 0%, rgba(3,8,15,1) 100%) fixed;
+  background: -webkit-linear-gradient(180deg, rgba(8,18,33,1) 0%, rgba(3,8,15,1) 100%) fixed;
+  background: linear-gradient(180deg, rgba(8,18,33,1) 0%, rgba(3,8,15,1) 100%) fixed;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#081221",endColorstr="#03080f",GradientType=1);
+}
+
+
+h1, h2, h3, h4, h5, label, button {
+  @include montserrat-family-500;
+  color: $color-hl;
+}
+
+label {
+  font-size: 11px;
+  display: block;
+}
+
+button {
+  background-color: $color-accent-blue;
+  border: 0;
+  padding: 4px 10px;
+  font-size: 11px;
+  margin: 4px 0;
+  border-radius: 0;
+  &:focus-visible {
+    outline: 1px solid $color-hl;
+  }
+}
+
+select {
+  @include mulish-family-500;
+  background-color: $color-input-bg;
+  color: $color-hl;
+  border: 0;
+  padding: 2px 4px;
+  font-size: 11px;
+  margin: 4px 0;
+  border-radius: 0;
+  /* for Firefox */
+  //-moz-appearance: none;
+  /* for Chrome */
+  //-webkit-appearance: none;
+  &::-ms-expand {
+    /* For IE10 */
+    // display: none;
+  }
+  &:focus-visible {
+    outline: 1px solid $color-accent-blue;
+  }
+  option {
+    background-color: $color-input-bg;
+  }
+}
+
+input[type="text"], input[type="number"], input[type="email"], textarea {
+  @include mulish-family-500;
+  color: $color-hl;
+  background-color: $color-input-bg;
+  border: 0;
+  padding: 2px 4px;
+  font-size: 11px;
+  line-height: 18px;
+  margin: 4px 0;
+  border-radius: 0;
+  &:focus-visible {
+    outline: 1px solid $color-accent-blue;
+  }
+  &::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: $color-core;
+    opacity: 1; /* Firefox */
+  }
+  &:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: $color-core;
+  }
+  &::-ms-input-placeholder { /* Microsoft Edge */
+    color: $color-core;
+  }
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active,
+  &:-internal-autofill-selected {
+    -webkit-box-shadow: 0 0 0px 1000px #a5c8fa inset;
+  }
+}
+
+.panel {
+  background-color: $color-panel;
+  padding: 15px;
+}
+
+.required-badge {
+  color: $color-accent-blue;
+}
+.invalid-feedback {
+  color: $color-accent-blue;
+}

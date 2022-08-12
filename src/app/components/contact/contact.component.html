@@ -1,0 +1,32 @@
+<div>
+  <h3>Get in touch</h3>
+  <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="panel">
+    <div>
+      <label for="name">Name <span class="required-badge">*</span></label>
+      <input type="text" id="name" name="name" formControlName="name" [ngClass]="{ 'is-invalid': submitted && controls['name'].errors }"/>
+      <div *ngIf="submitted && controls['name'].errors" class="invalid-feedback">
+        <div *ngIf="controls['name'].errors['required']">Name is required</div>
+      </div>
+    </div>
+    <div>
+      <label for="email">Email Address <span class="required-badge">*</span></label>
+      <input type="email" id="email" name="email" formControlName="email" [ngClass]="{ 'is-invalid': submitted && controls['email'].errors }" />
+      <div *ngIf="submitted && controls['email'].errors" class="invalid-feedback">
+        <div *ngIf="controls['email'].errors['required']">Email is required</div>
+        <div *ngIf="controls['email'].errors['email']">Email is invalid</div>
+      </div>
+    </div>
+    <div>
+      <label for="message">Message <span class="required-badge">*</span></label>
+      <textarea name="message" id="message" formControlName="message" [ngClass]="{ 'is-invalid': submitted && controls['message'].errors }"></textarea>
+      <div *ngIf="submitted && controls['message'].errors" class="invalid-feedback">
+        <div *ngIf="controls['message'].errors['required']">Message is required</div>
+        <div *ngIf="controls['message'].errors['minlength']">Message must be at least 30 characters</div>
+      </div>
+    </div>
+    <div>
+      <button type="submit">Send</button>
+    </div>
+  </form>
+</div>

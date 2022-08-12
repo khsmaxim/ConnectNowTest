@@ -1,0 +1,181 @@
+@import "vars.scss";
+
+:host {
+  > div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    > .panel-wrapper {
+      > div {
+        background-color: $color-panel;
+        padding: 15px;
+        min-width: 200px;
+        > h3 {
+          margin-top: 0;
+        }
+        .flex-form {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          .terms {
+            input {
+              display: block;
+              width: 100%;
+            }
+          }
+          .rating {
+            input {
+              display: block;
+              width: 100%;
+            }
+            input::-webkit-outer-spin-button,
+            input::-webkit-inner-spin-button {
+              -webkit-appearance: none;
+              margin: 0;
+            }
+            input[type=number] {
+              -moz-appearance: textfield;
+            }
+          }
+          .order {
+            > div {
+              display: flex;
+              width: 100%;
+              margin: 0;
+              button {
+                padding: 0;
+                height: 22px;
+                width: 22px;
+                position: relative;
+                vertical-align: baseline;
+                overflow: hidden;
+                &.asc {
+                  &::after {
+                    content: '\2191';
+                    font-size: 22px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-45%, -54%);
+                  }
+                }
+                &.desc {
+                  &::after {
+                    content: '\2193';
+                    font-size: 22px;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-45%, -54%);
+                  }
+                }
+              }
+              select {
+                flex: 1 1 auto;
+                vertical-align: baseline;
+              }
+            }
+          }
+          .reset {
+          }
+          @media all and (max-width: 767px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            .terms {
+              flex: 1 1 100%;
+            }
+            .rating {
+              flex: 2 1;
+            }
+            .order {
+              flex: 3 1;
+            }
+            .reset {
+              flex: 0 1;
+              align-self: flex-end;
+            }
+          }
+          @media all and (max-width: 479px) {
+            .terms {
+              flex: 1 1 100%;
+            }
+            .rating {
+              flex: 1 1 100%;
+            }
+            .order {
+              flex: 1 1 100%;
+            }
+            .reset {
+              flex: 1 1 100%;
+              > button {
+                width: 100%;
+              }
+            }
+          }
+        }
+      }
+    }
+    > .games {
+      flex: 1 1 auto;
+      text-align: center;
+      > div {
+        text-align: initial;
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 20px;
+        background-color: $color-panel;
+        min-height: 100px;
+        position: relative;
+        > .thumb {
+          min-width: 100px;
+          min-height: 100%;
+          background-color: black;
+        }
+        > .info {
+          padding: 10px;
+          padding-right: 50px;
+          width: 100%;
+          > h3 {
+            margin: 0;
+          }
+          > .date {
+
+          }
+          > .summary {
+            margin-top: 10px;
+            font-size: 11px;
+          }
+        }
+        > .rating {
+          position: absolute;
+          top: 50%;
+          right: 15px;
+          transform: translateY(-50%);
+          background-color: #5692e8;
+          color: $color-hl;
+          border-radius: 50%;
+          width: 25px;
+          height: 25px;
+          line-height: 25px;
+          text-align: center;
+          font-size: 12px;
+          font-weight: 500;
+        }
+        @media all and (max-width: 479px) {
+          flex-direction: column;
+          .thumb {
+            min-height: 100px;
+            min-width: none;
+          }
+          .rating {
+            top: 15px;
+            transform: none;
+          }
+        }
+      }
+    }
+    @media all and (max-width: 767px) {
+      flex-direction: column;
+    }
+  }
+}

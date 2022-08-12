@@ -1,0 +1,28 @@
+
+$color-core: #c1d1e8;
+$color-hl: #ffffff;
+$color-panel: #0e1a2b;
+$color-input-bg: #182c47;
+$color-accent-blue: #5692e8;
+
+// @include montserrat-family;
+@mixin montserrat-family {
+  font-family: 'Montserrat', serif;
+}
+@mixin montserrat-family-500 {
+  @include montserrat-family;
+  font-weight: 500;
+}
+@mixin montserrat-family-600 {
+  @include montserrat-family;
+  font-weight: 600;
+}
+
+// @include mulish-family;
+@mixin mulish-family {
+  font-family: 'Mulish', serif;
+}
+@mixin mulish-family-500 {
+  @include mulish-family;
+  font-weight: 500;
+}
