@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from "@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { Game } from 'src/app/shared/game';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +25,7 @@ export class GamesService {
   }
 
   getGames() {
-    this.httpClient.get('/assets/games.json')
+    this.httpClient.get(environment.apiURL + 'assets/games.json')
       .subscribe({
         error: () => this.handleError.bind(this),
         next: (response: any) => {

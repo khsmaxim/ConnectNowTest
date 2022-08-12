@@ -36,6 +36,6 @@ export class ContactComponent implements OnInit {
       return;
     }
     // console.log(JSON.stringify(this.form.value, null, 2));
-    alert('Succesfully sent');
+    alert('Successfully sent!');
   }
 }
